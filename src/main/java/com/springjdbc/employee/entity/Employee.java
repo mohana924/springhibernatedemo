@@ -55,6 +55,10 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     @JsonManagedReference
     private Set<DepartmentEmployee> departments;
+    
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference 
+    private Set<EmployeeTitle> titles;
 
     public Long getId() {
 	return id;
